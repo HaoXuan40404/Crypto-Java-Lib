@@ -1,4 +1,4 @@
-package com.webank.wedpr;
+package com.webank.wedpr.demo;
 
 import com.webank.wedpr.crypto.CryptoResult;
 import com.webank.wedpr.crypto.NativeInterface;
@@ -8,10 +8,9 @@ import com.webank.wedpr.crypto.NativeInterface;
  * @Description
  * @data 2020/07/15
  */
-public class Main {
+public class ECCDemo {
     public static void main(String[] args) throws Exception{
         {
-
             CryptoResult keyPair =  NativeInterface.secp256k1GenKeyPair();
             String message = "847adcf9b24cf0041ddff02ffe324e30b1271c5170086f8ee799dd1123dacb2e";
             CryptoResult Signature =  NativeInterface.secp256k1Sign(keyPair.privateKey, message);
@@ -19,7 +18,6 @@ public class Main {
             message = "847adcf9b24cf0041ddff02ffe324e30b1271c5170086f8ee799dd1123dacb2e";
             CryptoResult result =  NativeInterface.secp256k1Verify(keyPair.publicKey, message, Signature.signature);
             System.out.println("result = " + result.booleanResult);
-
         }
         {
             CryptoResult keyPair = NativeInterface.sm2GenKeyPair();
@@ -34,6 +32,8 @@ public class Main {
             CryptoResult result = NativeInterface.sm2ComputeHashE(keyPair.publicKey,message);
             System.out.println(result.hash);
         }
+
+
 //
 //        {
 //            CryptoResult keyPair =  NativeInterface.sm2keyPair();
