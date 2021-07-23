@@ -14,18 +14,24 @@ class NativeInterface {
     public static final int RECEIVER_PACK_LENGTH = 16896;
     public static final int RECEIVER_MATRIX_COLUMN_NUMBER = 4;
 
+    private static final String LIB_FFI_RESOURCE_PATH1;
+    private static final String LIB_FFI_RESOURCE_PATH2;
     private static final String LIB_FFI_RESOURCE_PATH;
-    // private static final String LIB_FFI_NAME1 = "WeDPR_dynamic_lib/libmiracl";
-    // private static final String LIB_FFI_NAME2 = "WeDPR_dynamic_lib/libcryptoTools";
+    private static final String LIB_FFI_NAME1 = "WeDPR_dynamic_lib/libmiracl";
+    private static final String LIB_FFI_NAME2 = "WeDPR_dynamic_lib/libcryptoTools";
     private static final String LIB_FFI_NAME = "WeDPR_dynamic_lib/liblibOTe";
 
     static {
         String os = System.getProperty("os.name");
         String tail = EnvironmentUtils.getResourceTailByOs(os);
+        LIB_FFI_RESOURCE_PATH1 = LIB_FFI_NAME1 + tail;
+        LIB_FFI_RESOURCE_PATH2 = LIB_FFI_NAME2 + tail;
         LIB_FFI_RESOURCE_PATH = LIB_FFI_NAME + tail;
         try {
-            System.out.println("try load linux lib! ");
-            System.out.println(LIB_FFI_RESOURCE_PATH);
+            // System.out.println("try load linux lib! ");
+            // System.out.println(LIB_FFI_RESOURCE_PATH);
+            NativeUtils.loadLibrary(LIB_FFI_RESOURCE_PATH1);
+            NativeUtils.loadLibrary(LIB_FFI_RESOURCE_PATH2);
             NativeUtils.loadLibrary(LIB_FFI_RESOURCE_PATH);
         } catch (IOException e) {
             throw new RuntimeException("Failed to load library", e);

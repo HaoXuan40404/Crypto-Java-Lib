@@ -1,14 +1,14 @@
 package com.webank.wedpr.ot.kkrt;
 
 public class OtData {
-    long[] senderSeed;
-    byte[] senderSeedHash;
-    byte[] senderPackSeed;
-    long[][] enMessage;
-    byte[][] hash;
-    long[] senderMatrix;
+    public long[] senderSeed;
+    public byte[] senderSeedHash;
+    public byte[] senderPackSeed;
+    public long[][] enMessage;
+    public byte[][] hash;
+    public long[] senderMatrix;
 
-    long[] receiverSeed;
-    long[] receiverMatrix;
-    byte[] receiverPack;
+    public long[] receiverSeed;
+    public long[] receiverMatrix;
+    public byte[] receiverPack;
 }

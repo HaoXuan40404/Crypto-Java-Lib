@@ -76,7 +76,6 @@ public class NativeUtils {
             } catch (AccessDeniedException e) {
                 // In case that p1 load fails p2 write
             }
-
             System.load(tmpFile.getAbsolutePath());
         } finally {
             if (lock != null) {
